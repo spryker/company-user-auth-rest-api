@@ -7,7 +7,7 @@
 
 namespace Spryker\Glue\CompanyUserAuthRestApi\Dependency\Client;
 
-interface CompanyUserAuthRestApiToOauthCompanyUserConnectorClientInterface
+interface CompanyUserAuthRestApiToOauthCompanyUserClientInterface
 {
     /**
      * @return string
