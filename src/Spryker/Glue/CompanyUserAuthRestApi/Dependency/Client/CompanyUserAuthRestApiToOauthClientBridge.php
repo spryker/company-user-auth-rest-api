@@ -25,11 +25,6 @@ class CompanyUserAuthRestApiToOauthClientBridge implements CompanyUserAuthRestAp
         $this->oauthClient = $oauthClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         return $this->oauthClient->processAccessTokenRequest($oauthRequestTransfer);

@@ -23,20 +23,11 @@ class RestUserMapper implements RestUserMapperInterface
      */
     protected $companyUserStorageClient;
 
-    /**
-     * @param \Spryker\Glue\CompanyUserAuthRestApi\Dependency\Client\CompanyUserAuthRestApiToCompanyUserStorageClientInterface $companyUserStorageClient
-     */
     public function __construct(CompanyUserAuthRestApiToCompanyUserStorageClientInterface $companyUserStorageClient)
     {
         $this->companyUserStorageClient = $companyUserStorageClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestUserTransfer $restUserTransfer
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestUserTransfer
-     */
     public function map(RestUserTransfer $restUserTransfer, RestRequestInterface $restRequest): RestUserTransfer
     {
         $uuidCompanyUser = (string)$restUserTransfer->getIdCompanyUser();

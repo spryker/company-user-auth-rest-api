@@ -31,10 +31,6 @@ class CompanyUserAccessTokenReader implements CompanyUserAccessTokenReaderInterf
      */
     protected $restResourceBuilder;
 
-    /**
-     * @param \Spryker\Glue\CompanyUserAuthRestApi\Dependency\Client\CompanyUserAuthRestApiToOauthClientInterface $oauthClient
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     */
     public function __construct(
         CompanyUserAuthRestApiToOauthClientInterface $oauthClient,
         RestResourceBuilderInterface $restResourceBuilder
@@ -43,12 +39,6 @@ class CompanyUserAccessTokenReader implements CompanyUserAccessTokenReaderInterf
         $this->restResourceBuilder = $restResourceBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\RestCompanyUserAccessTokensAttributesTransfer $restCompanyUserAccessTokensAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function processAccessTokenRequest(
         RestRequestInterface $restRequest,
         RestCompanyUserAccessTokensAttributesTransfer $restCompanyUserAccessTokensAttributesTransfer
@@ -64,12 +54,6 @@ class CompanyUserAccessTokenReader implements CompanyUserAccessTokenReaderInterf
         return $this->createResponse($oauthResponseTransfer);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\RestCompanyUserAccessTokensAttributesTransfer $restCompanyUserAccessTokensAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRequestTransfer
-     */
     protected function createOauthRequestTransfer(
         RestRequestInterface $restRequest,
         RestCompanyUserAccessTokensAttributesTransfer $restCompanyUserAccessTokensAttributesTransfer
@@ -82,9 +66,6 @@ class CompanyUserAccessTokenReader implements CompanyUserAccessTokenReaderInterf
         return $oauthRequestTransfer;
     }
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function createInvalidLoginResponse(): RestResponseInterface
     {
         $restErrorTransfer = (new RestErrorMessageTransfer())
@@ -96,11 +77,6 @@ class CompanyUserAccessTokenReader implements CompanyUserAccessTokenReaderInterf
             ->addError($restErrorTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthResponseTransfer $oauthResponseTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function createResponse(OauthResponseTransfer $oauthResponseTransfer): RestResponseInterface
     {
         $restTokenAttributesTransfer = new RestCompanyUserAccessTokenResponseAttributesTransfer();
