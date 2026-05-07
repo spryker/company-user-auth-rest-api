@@ -1,0 +1,69 @@
+resource:
+    name: CompanyUserAccessTokens
+    shortName: company-user-access-tokens
+    description: 'Generate access tokens scoped to a specific company user'
+
+    processor: Spryker\Glue\CompanyUserAuthRestApi\Api\Storefront\ApiPlatform\Processor\CompanyUserAccessTokensStorefrontProcessor
+
+    paginationEnabled: false
+    security: "is_granted('ROLE_USER')"
+
+    operations:
+        - type: Post
+          description: 'Create an access token for a specific company user'
+
+    properties:
+        companyUserAccessTokenId:
+            type: string
+            identifier: true
+            writable: false
+            readable: false
+            required: false
+            description: 'Company user access token identifier'
+            openapiContext:
+                example: '0'
+
+        idCompanyUser:
+            type: string
+            writable: true
+            readable: false
+            required: true
+            description: 'UUID of the company user to authenticate as'
+            openapiContext:
+                example: '59b660c3-a2d4-5def-98e7-95a0ab34f20c'
+
+        accessToken:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Generated access token'
+            openapiContext:
+                example: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9'
+
+        tokenType:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Token type (Bearer)'
+            openapiContext:
+                example: 'Bearer'
+
+        expiresIn:
+            type: integer
+            writable: false
+            readable: true
+            required: false
+            description: 'Token expiration time in seconds'
+            openapiContext:
+                example: 28800
+
+        refreshToken:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Refresh token for obtaining a new access token'
+            openapiContext:
+                example: 'def50200e880ff01aefaa8e7f87d84c8ef'

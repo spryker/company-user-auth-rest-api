@@ -1,0 +1,5 @@
+post:
+    idCompanyUser:
+        - NotBlank
+        - Uuid:
+              message: 'This is not a valid UUID.'

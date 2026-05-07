@@ -38,4 +38,26 @@
     <transfer name="CompanyUserStorage">
     </transfer>
 
+    <transfer name="AuthenticationCredentials">
+        <property name="grantType" type="string" description="The authentication flow identifier used to route the request to an applicable authentication server plugin."/>
+        <property name="customerReference" type="string" description="A unique reference for a customer."/>
+        <property name="idCompanyUser" type="string" description="UUID of the company user to authenticate as."/>
+    </transfer>
+
+    <transfer name="GlueAuthenticationRequest">
+        <property name="authenticationCredentials" type="AuthenticationCredentials" description="Backend-agnostic credential payload supplied by the caller to request an authentication token."/>
+        <property name="requestContext" type="GlueAuthenticationRequestContext" description="The context of a request."/>
+    </transfer>
+
+    <transfer name="GlueAuthenticationRequestContext">
+        <property name="requestApplication" type="string" description="The application making the request."/>
+    </transfer>
+
+    <transfer name="GlueAuthenticationResponse">
+        <property name="authenticationToken" type="AuthenticationToken" description="Backend-agnostic authentication result returned from the authentication server."/>
+    </transfer>
+
+    <transfer name="AuthenticationToken">
+        <property name="isValid" type="bool" description="A boolean flag indicating if the authentication result is valid."/>
+    </transfer>
 </transfers>
