@@ -11,6 +11,16 @@ resource:
     operations:
         - type: Post
           description: 'Create an access token for a specific company user'
+          openapiContext:
+              responses:
+                  201:
+                      description: 'Access token created for the company user.'
+                  401:
+                      description: 'Unauthenticated: the access token is invalid, or the company user could not be authenticated.'
+                  403:
+                      description: 'Access denied: missing access token.'
+                  422:
+                      description: 'Unprocessable request.'
 
     properties:
         companyUserAccessTokenId:
