@@ -27,6 +27,10 @@
 
     <transfer name="OauthResponse">
         <property name="isValid" type="bool" description="A boolean flag indicating if a token or request is valid."/>
+        <property name="tokenType" type="string" description="The type of token issued, typically &quot;Bearer&quot;."/>
+        <property name="expiresIn" type="int" description="The duration in seconds for which an access token is valid."/>
+        <property name="accessToken" type="string" description="The token used for authenticating API requests."/>
+        <property name="refreshToken" type="string" description="A token used to obtain a new access token when the current one expires."/>
     </transfer>
 
     <transfer name="RestErrorMessage">
